@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Amanda Arias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-color: #f7e9f3;
+        }
+
+        .cormorant-garamond {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .bg-primary {
+            background-color: #a44a86;
+        }
+
+        .bg-secondary {
+            background-color: #f7e9f3;
+        }
+
+        .bg-tertiary {
+            background-color: #d175b5;
+        }
+
+        .text-primary {
+            color: #a44a86;
+        }
+
+        .text-secondary {
+            color: #f7e9f3;
+        }
+
+        .text-tertiary {
+            color: #d175b5;
+        }
+
+        /* Phone frame styles */
+        .phone-frame {
+            position: relative;
+            width: 250px;
+            height: 500px;
+            border: 10px solid #000;
+            border-radius: 40px;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            margin: 1rem;
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 10px;
+            background-color: #333;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .phone-screen {
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            background-color: #fff;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .phone-screen iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* New hero section background styles */
+        .hero-bg {
+            background: radial-gradient(circle, #f7e9f3 0%, #d175b5 100%);
+            position: relative;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 80%;
+            height: 80%;
+            background: rgba(164, 74, 134, 0.2);
+            border-radius: 50%;
+            animation: move-shape 15s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -20%;
+            width: 60%;
+            height: 60%;
+            background: rgba(209, 117, 181, 0.3);
+            border-radius: 50%;
+            animation: move-shape 20s infinite ease-in-out reverse;
+            z-index: 0;
+        }
+
+        #nav-links.open {
+            position: absolute;
+            z-index: 50;
+        }
+
+        @keyframes move-shape {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(100px, 50px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-secondary">
+
+    <!-- New Header Section with combined Nav -->
+    <header class="bg-primary text-secondary p-4 flex flex-row items-center justify-between shadow-lg relative">
+        <!-- Logo/Name -->
+        <a href="index.html"
+            class="relative z-50 cormorant-garamond text-3xl font-bold translate-text mb-0 px-4 py-2 rounded-full bg-tertiary text-white shadow hover:bg-white hover:text-[#4b2240] transition-colors duration-300 cursor-pointer"
+            data-es="Amanda Arias" data-en="Amanda Arias">
+            Amanda Arias
+        </a>
+
+        <div class="flex items-center">
+            <!-- Hamburger Button (visible solo en mobile) -->
+            <button id="menu-btn" class="md:hidden text-3xl focus:outline-none ml-2">
+                &#9776;
+            </button>
+
+            <!-- Navigation and Translate Button -->
+            <nav id="nav-links"
+                class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm font-bold cormorant-garamond text-center hidden md:flex bg-primary md:bg-transparent top-16 right-0 left-auto md:left-auto md:right-auto w-3/4 md:w-auto shadow-lg md:shadow-none rounded-l-lg md:rounded-none p-4 md:p-0 transition-all duration-300">
+                <a href="#mis-servicios" class="hover:underline translate-text" data-es="MIS SERVICIOS"
+                    data-en="MY SERVICES">MIS SERVICIOS</a>
+                <a href="#mis-trabajos" class="hover:underline translate-text" data-es="MIS TRABAJOS"
+                    data-en="MY WORK">MIS
+                    TRABAJOS</a>
+                <a href="#contacto" class="hover:underline translate-text" data-es="CONTACTO"
+                    data-en="CONTACT">CONTACTO</a>
+                <button id="translate-btn"
+                    class="bg-tertiary text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-white hover:text-[#4b2240] transition-colors duration-300 mt-2 md:mt-0">
+                    ESP / ENG
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (Welcome) -->
+    <section class="h-screen flex items-center justify-center p-8 hero-bg">
+        <div class="z-10 text-primary text-center">
+            <h1 class="cormorant-garamond text-6xl md:text-8xl font-bold translate-text"
+                data-es="Bienvenido a mi portafolio" data-en="Welcome to my portfolio">Bienvenido a mi portafolio</h1>
+
+            <!-- Botón de descargar CV -->
+            <a href="cv/Amanda_Arias_CV_Es.pdf" download id="cv-download-btn" class="inline-block mt-6 bg-primary text-secondary px-6 py-2 rounded-full text-base font-semibold shadow-md
+           hover:bg-tertiary hover:scale-110 transition-all duration-300 translate-text" data-es="Descargar CV"
+                data-en="Download CV">
+                Descargar CV
+            </a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="sobre-mi" class="bg-tertiary text-secondary py-16 px-8">
+        <div
+            class="container flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-16">
+            <div class="md:w-1/2 text-left">
+                <h2 class="text-5xl font-bold cormorant-garamond mb-4 translate-text" data-es="SOBRE MÍ"
+                    data-en="ABOUT ME">SOBRE MÍ</h2>
+                <p class="text-lg mb-4 translate-text"
+                    data-es="Hola! Soy Amanda y soy estudiante de publicidad. Actualmente estoy impartiendo mi tercer cuatrimestre de la carrera, por lo que he adquirido bastante experiencia en el mundo del marketing y de la comunicación digital."
+                    data-en="Hi! I'm Amanda and I'm a publicity student. I'm currently in my third semester of the degree, so I have acquired a lot of experience in the world of marketing and digital communication.">
+                    Hola! Soy Amanda y soy estudiante de publicidad. Actualmente estoy impartiendo mi tercer
+                    cuatrimestre de la carrera, por lo que he adquirido bastante experiencia en el mundo del marketing y
+                    de la comunicación digital.
+                </p>
+                <p class="text-lg translate-text"
+                    data-es="Me apasiona el mundo digital y me considero una persona bastante creativa y con muchas ideas que puedan atraer bastante público."
+                    data-en="I am passionate about the digital world and I consider myself a very creative person with many ideas that can attract a lot of public.">
+                    Me apasiona el mundo digital y me considero una persona bastante creativa y con muchas ideas que
+                    puedan atraer bastante público.
+                </p>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <!-- Replace with user image -->
+                <img src="imgs/Amanda.jpg" alt="Amanda Arias" class="rounded-lg w-64 max-w-full h-auto"
+                    style="box-shadow: 0 22px 32px 0 rgba(0,0,0,0.35);" />
+            </div>
+        </div>
+    </section>
+
+    <!-- My Services Section -->
+    <section id="mis-servicios" class="bg-secondary text-primary py-16 px-8">
+        <div class="container text-center">
+            <h2 class="text-5xl font-bold cormorant-garamond mb-8 translate-text" data-es="MIS SERVICIOS"
+                data-en="MY SERVICES">MIS SERVICIOS</h2>
+            <ul class="text-2xl font-semibold space-y-4">
+                <li class="flex items-center justify-center translate-text" data-es="ASESORÍA DE REDES SOCIALES"
+                    data-en="SOCIAL MEDIA CONSULTING">
+                    <span class="mr-4 text-tertiary">◆</span> ASESORÍA DE REDES SOCIALES
+                </li>
+                <li class="flex items-center justify-center translate-text" data-es="GUIONES DE VIDEOS"
+                    data-en="VIDEO SCRIPTS">
+                    <span class="mr-4 text-tertiary">◆</span> GUIONES DE VIDEOS
+                </li>
+                <li class="flex items-center justify-center translate-text" data-es="VIDEOS" data-en="VIDEOS">
+                    <span class="mr-4 text-tertiary">◆</span> VIDEOS
+                </li>
+                <li class="flex items-center justify-center translate-text" data-es="FOTOS" data-en="PHOTOS">
+                    <span class="mr-4 text-tertiary">◆</span> FOTOS
+                </li>
+                <li class="flex items-center justify-center translate-text" data-es="EDICIÓN DE FOTOS Y VIDEOS"
+                    data-en="PHOTO AND VIDEO EDITING">
+                    <span class="mr-4 text-tertiary">◆</span> EDICIÓN DE FOTOS Y VIDEOS
+                </li>
+                <li class="flex items-center justify-center translate-text" data-es="MÁS" data-en="MORE">
+                    <span class="mr-4 text-tertiary">◆</span> MÁS
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- My Work Section -->
+    <section id="mis-trabajos" class="bg-primary text-secondary py-16 px-8">
+        <div class="container text-center">
+            <h2 class="text-5xl font-bold cormorant-garamond mb-4 translate-text" data-es="MIS TRABAJOS"
+                data-en="MY WORK">MIS TRABAJOS</h2>
+            <p class="text-lg mb-8 translate-text"
+                data-es="A raíz de estos cuatrimestres he realizado diferentes trabajos con marcas grandes como McDonald's y también con pequeños emprendimientos. A continuación podrán ver un poco mas de estos trabajos."
+                data-en="As a result of these semesters, I have done different jobs with big brands like McDonald's and also with small businesses. Below you can see a little more of these works.">
+                A raíz de estos cuatrimestres he realizado diferentes trabajos con marcas grandes como McDonald's y
+                también con pequeños emprendimientos. A continuación podrán ver un poco mas de estos trabajos.
+            </p>
+        </div>
+    </section>
+
+    <!-- Work Content Section (Phone Mockups) -->
+    <section id="contenido-trabajos" class="bg-tertiary text-secondary py-16 px-8">
+        <div class="container text-center">
+            <h2 class="text-5xl font-bold cormorant-garamond mb-8 translate-text" data-es="CONTENIDO DE MIS TRABAJOS"
+                data-en="CONTENT OF MY WORK">CONTENIDO DE MIS TRABAJOS</h2>
+            <div class="flex flex-wrap justify-center items-center">
+
+                <!-- Phone Mockup 1: Personificacion del Picadillo -->
+                <div class="flex flex-col items-center mx-4 my-4">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <video controls class="w-full h-full object-cover rounded-lg" controlsList="nodownload">
+                                <source src="videos/Picadillo.mp4" type="video/mp4">
+                                Tu navegador no soporta la reproducción de video.
+                            </video>
+                        </div>
+                    </div>
+                    <h3 class="mt-2 text-xl font-bold translate-text" data-es="PERSONIFICACIÓN DEL PICADILLO"
+                        data-en="PERSONIFICATION OF PICADILLO">PERSONIFICACIÓN DEL PICADILLO</h3>
+                    <p class="text-sm translate-text" data-es="INTRODUCCIÓN A LA PUBLICIDAD"
+                        data-en="INTRODUCTION TO ADVERTISING">INTRODUCCIÓN A LA PUBLICIDAD</p>
+                </div>
+
+                <!-- Phone Mockup 2: Trabajo Final Intro a Publi -->
+                <div class="flex flex-col items-center mx-4 my-4">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <video controls class="w-full h-full object-cover rounded-lg" controlsList="nodownload">
+                                <source src="videos/trabajoFinal.mp4" type="video/mp4">
+                                Tu navegador no soporta la reproducción de video.
+                            </video>
+                        </div>
+                    </div>
+                    <h3 class="mt-2 text-xl font-bold translate-text" data-es="TRABAJO FINAL INTRO A PUBLI"
+                        data-en="FINAL WORK INTRO TO ADVERTISING">TRABAJO FINAL INTRO A PUBLI</h3>
+                    <p class="text-sm translate-text" data-es="INTRODUCCIÓN A LA PUBLICIDAD"
+                        data-en="INTRODUCTION TO ADVERTISING">INTRODUCCIÓN A LA PUBLICIDAD</p>
+                </div>
+
+                <!-- Phone Mockup 3: McDonald's -->
+                <div class="flex flex-col items-center mx-4 my-4">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <video controls class="w-full h-full object-cover rounded-lg" controlsList="nodownload">
+                                <source src="videos/mcdonalds.mp4" type="video/mp4">
+                                Tu navegador no soporta la reproducción de video.
+                            </video>
+                        </div>
+                    </div>
+                    <h3 class="mt-2 text-xl font-bold translate-text" data-es="MCDONALD'S" data-en="MCDONALD'S">
+                        MCDONALD'S</h3>
+                    <p class="text-sm translate-text" data-es="INTRODUCCIÓN A LA PUBLICIDAD"
+                        data-en="INTRODUCTION TO ADVERTISING">INTRODUCCIÓN A LA PUBLICIDAD</p>
+                </div>
+
+                <!-- Phone Mockup 4: Portafolio Individual -->
+                <div class="flex flex-col items-center mx-4 my-4">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <video controls class="w-full h-full object-cover rounded-lg" controlsList="nodownload">
+                                <source src="videos/portafolioIndividual.mp4" type="video/mp4">
+                                Tu navegador no soporta la reproducción de video.
+                            </video>
+                        </div>
+                    </div>
+                    <h3 class="mt-2 text-xl font-bold translate-text" data-es="PORTAFOLIO INDIVIDUAL"
+                        data-en="INDIVIDUAL PORTFOLIO">PORTAFOLIO INDIVIDUAL</h3>
+                    <p class="text-sm translate-text" data-es="INTRODUCCIÓN A LA PUBLICIDAD"
+                        data-en="INTRODUCTION TO ADVERTISING">INTRODUCCIÓN A LA PUBLICIDAD</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- Contact Section -->
+    <section id="contacto" class="bg-primary text-secondary py-6 px-8">
+        <div class="container flex flex-col items-center justify-center text-center">
+            <h2 class="text-5xl font-bold cormorant-garamond mb-2 translate-text" data-es="CONTÁCTAME"
+                data-en="CONTACT ME">CONTÁCTAME</h2>
+            <p class="text-xl mb-8 font-semibold translate-text" data-es="HABLEMOS DE TU IDEA"
+                data-en="LET'S TALK ABOUT YOUR IDEA">HABLEMOS DE TU IDEA</p>
+            <div class="flex flex-col items-center space-y-4 w-full">
+                <!-- Updated Mailto link for direct email -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=amandaarias8507@gmail.com" target="_blank"
+                    class="flex items-center justify-center bg-tertiary text-primary rounded-full px-6 py-3 hover:bg-white transition-colors duration-300 shadow-md w-full max-w-xs mx-auto">
+                    <span class="mr-3">✉️</span>
+                    <span class="translate-text" data-es="amandaarias8507@gmail.com"
+                        data-en="amandaarias8507@gmail.com">amandaarias8507@gmail.com</span>
+                </a>
+                <!-- Updated link for WhatsApp -->
+                <a href="https://wa.me/50688037227"
+                    class="flex items-center justify-center bg-tertiary text-primary rounded-full px-6 py-3 hover:bg-white transition-colors duration-300 shadow-md w-full max-w-xs mx-auto">
+                    <span class="mr-3">📞</span>
+                    <span class="translate-text" data-es="8803-7227" data-en="8803-7227">8803-7227</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Redes sociales (más arriba, más grande) -->
+    <section class="bg-primary text-secondary py-12 px-8 text-center">
+        <div class="container flex flex-col items-center space-y-8">
+            <h3 class="text-4xl md:text-5xl font-bold cormorant-garamond translate-text"
+                data-es="Sígueme en redes sociales" data-en="Follow me on social media">
+                Sígueme en redes sociales
+            </h3>
+            <div class="flex space-x-10 justify-center">
+                <!-- Facebook Icon -->
+                <a href="https://www.facebook.com/share/16vEsHC6Qq/?mibextid=wwXIfr" target="_blank" rel="noopener"
+                    class="transition-transform duration-300 hover:scale-110">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"
+                        class="w-12 h-12" style="filter: invert(1);" />
+                </a>
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/mandy_arias?igsh=cnd1dWRtdmVrMG12" target="_blank" rel="noopener"
+                    class="transition-transform duration-300 hover:scale-110">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"
+                        class="w-12 h-12" style="filter: invert(1);" />
+                </a>
+                <!-- LinkedIn Icon -->
+                <a href="https://www.linkedin.com/in/amanda-arias-912872365" target="_blank" rel="noopener"
+                    class="transition-transform duration-300 hover:scale-110">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
+                        class="w-12 h-12" style="filter: invert(1);" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer legal (abajo, fondo diferente) -->
+    <footer class="bg-tertiary text-secondary text-center py-4">
+        <p class="text-xl font-light cormorant-garamond translate-text"
+            data-es="© 2024 Amanda Arias. Todos los derechos reservados."
+            data-en="© 2024 Amanda Arias. All rights reserved.">
+            © 2025 Amanda Arias. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Traducción
+            const translateBtn = document.getElementById('translate-btn');
+            let isEnglish = false;
+
+            translateBtn.addEventListener('click', () => {
+                isEnglish = !isEnglish;
+                const textElements = document.querySelectorAll('.translate-text');
+
+                textElements.forEach(el => {
+                    const esText = el.getAttribute('data-es');
+                    const enText = el.getAttribute('data-en');
+                    el.textContent = isEnglish ? enText : esText;
+                });
+
+                // Cambiar el enlace del CV según el idioma
+                const cvBtn = document.getElementById('cv-download-btn');
+                if (cvBtn) {
+                    cvBtn.href = isEnglish
+                        ? "cv/Amanda_Arias_CV_En.pdf"
+                        : "cv/Amanda_Arias_CV_Es.pdf";
+                }
+
+                translateBtn.textContent = "ESP / ENG";
+            });
+
+            // Menú hamburguesa
+            const menuBtn = document.getElementById('menu-btn');
+            const navLinks = document.getElementById('nav-links');
+            if (menuBtn && navLinks) {
+                menuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('hidden');
+                    navLinks.classList.toggle('open');
+                });
+            }
+        });
+
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
+    </script>
+</body>
+
+</html>
